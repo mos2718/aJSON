@@ -1,0 +1,44 @@
+﻿<!DOCTYPE html>
+<html>
+ <head>
+ <script src="HTTP2019.js"></script>   
+ <script>	
+  var myObj; 
+  var patientNameArray =[];
+  function callBack() { 
+      //  alert(ret);
+        myObj= JSON.parse(ret);  
+      //  alert(myObj.entry.length);
+        for (var i = 0; i <myObj.entry.length; i++) {
+            patientNameArray.push(myObj.entry[i].resource.name[0].text);
+           }
+     /*  for (var i = 0; i <patientNameArray.length; i++) {
+                 alert(patientNameArray[i]);
+           } 
+        */     
+      //   alert(patientNameArray.length);
+
+    } 
+   HTTPGetData("http://hapi.fhir.org/baseR4/Patient?organization=632757");
+</script> 
+</head>
+<body >
+<ul id="myList">  </ul>
+<button onclick="myFunction()">Try it</button>
+</body>
+
+<script>
+var i=0;
+function myFunction()
+  {// alert(patientNameArray.length);
+   if(i < patientNameArray.length) {  addItem(patientNameArray[i]); i++}
+   }
+
+function addItem(textValue) {
+var node = document.createElement("LI");
+var textnode = document.createTextNode(textValue);
+node.appendChild(textnode);
+document.getElementById("myList").appendChild(node);
+}
+</script>
+</html>

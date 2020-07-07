@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+
+<html><body>
+<ul id="myList">
+</ul>
+<button onclick="myFunction()">Try it</button>
+
+<script>
+ 
+var i=0;
+var dirnks = ["Water","Milk","Tea","coffee","abc","def"];
+function myFunction()
+{
+if(i < dirnks.length) { addItem(dirnks[i]); i++}
+}
+function addItem(textValue) {
+var node = document.createElement("LI");
+var textnode = document.createTextNode(textValue);
+node.appendChild(textnode);
+document.getElementById("myList").appendChild(node);
+} 
+</script>
+</body></html>
